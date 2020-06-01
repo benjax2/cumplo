@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chart from './Chart';
 import Grafico from './Grafico';
+import swal from 'sweetalert';
 
 
 
@@ -12,7 +13,11 @@ class Home extends Component {
       onFetch = ({data,labels}) =>{
         const sum = data.reduce((a, b) => a + b, 0);
         const avg = (sum / data.length) || 0;
-        alert('El promedio es de: '+avg);
+        swal(
+            'El promedio es: '+Math.round(avg),
+            '',
+            'success'
+        )
           this.setState({data,labels})
       }
       handleChange1 = (event) =>  {
